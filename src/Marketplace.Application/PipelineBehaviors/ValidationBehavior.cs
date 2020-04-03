@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -9,6 +10,7 @@ namespace Marketplace.Application.PipelineBehaviors
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
+        where TResponse : IResponse
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -28,7 +30,12 @@ namespace Marketplace.Application.PipelineBehaviors
                 .ToList();
 
             if (failures.Any())
-                throw new ValidationException(failures);
+            {
+                var response = (TResponse)Activator.CreateInstance(typeof(TResponse));
+                response.Errors = failures;
+                return Task.FromResult(response);
+            }
+                //throw new ValidationException(failures);
 
             return next();
         }

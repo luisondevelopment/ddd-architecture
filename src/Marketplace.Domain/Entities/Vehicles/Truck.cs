@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Marketplace.Domain.Entities.Vehicles
+﻿namespace Marketplace.Domain.Entities.Vehicles
 {
-    class Truck
+    public class Truck : Vehicle
     {
+        public int Km { get; set; }
     }
 }

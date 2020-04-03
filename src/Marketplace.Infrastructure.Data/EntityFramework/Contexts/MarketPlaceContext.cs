@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Marketplace.Domain.Entities.Vehicles;
+using Microsoft.EntityFrameworkCore;
 
 namespace Marketplace.Infrastructure.Data.EntityFramework.Contexts
 {
@@ -10,5 +11,7 @@ namespace Marketplace.Infrastructure.Data.EntityFramework.Contexts
         {
 
         }
+
+        public DbSet<Vehicle> Vehicles { get; set; }
     }
 }
