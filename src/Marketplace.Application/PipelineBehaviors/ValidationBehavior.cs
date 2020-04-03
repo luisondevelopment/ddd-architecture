@@ -35,7 +35,6 @@ namespace Marketplace.Application.PipelineBehaviors
                 response.Errors = failures;
                 return Task.FromResult(response);
             }
-                //throw new ValidationException(failures);
 
             return next();
         }

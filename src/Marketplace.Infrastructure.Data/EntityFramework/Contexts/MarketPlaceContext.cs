@@ -12,6 +12,11 @@ namespace Marketplace.Infrastructure.Data.EntityFramework.Contexts
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
+
         public DbSet<Vehicle> Vehicles { get; set; }
     }
 }
