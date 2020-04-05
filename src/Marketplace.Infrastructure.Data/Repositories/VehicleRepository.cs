@@ -6,9 +6,9 @@ namespace Marketplace.Infrastructure.Data.Repositories
 {
     public class VehicleRepository : Repository<Vehicle>, IVehicleRepository
     {
-        private readonly MarketPlaceContext _context;
+        private readonly MarketplaceContext _context;
 
-        public VehicleRepository(MarketPlaceContext context) : base(context)
+        public VehicleRepository(MarketplaceContext context) : base(context)
         {
             _context = context;
         }

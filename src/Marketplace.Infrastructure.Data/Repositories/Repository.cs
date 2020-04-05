@@ -8,10 +8,10 @@ namespace Marketplace.Infrastructure.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly MarketPlaceContext Db;
+        protected readonly MarketplaceContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
-        public Repository(MarketPlaceContext db)
+        public Repository(MarketplaceContext db)
         {
             Db = db;
             DbSet = Db.Set<TEntity>();

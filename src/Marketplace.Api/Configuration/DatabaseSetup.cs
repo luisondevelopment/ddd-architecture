@@ -9,7 +9,7 @@ namespace Marketplace.Api.Configuration
     {
         public static void AddDatabaseSetup(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<MarketPlaceContext>(options =>
+            services.AddDbContext<MarketplaceContext>(options =>
             {
                 if (!options.IsConfigured)
                     options.UseInMemoryDatabase("Marketplace");
