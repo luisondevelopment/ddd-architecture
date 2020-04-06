@@ -1,5 +1,4 @@
-﻿using Marketplace.Application.CommandHandlers;
-using Marketplace.Application.CommandHandlers.RegisterVehicle;
+﻿using Marketplace.Application.CommandHandlers.RegisterVehicle;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,7 +7,7 @@ namespace Marketplace.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class VehicleController : ControllerBase
+    public class VehicleController : BaseController
     {
         private readonly IMediator _mediator;
 
@@ -21,7 +20,7 @@ namespace Marketplace.Api.Controllers
         [Route("truck")]
         public async Task<IActionResult> Post(RegisterTruckCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            return Response(await _mediator.Send(command));
         }
     }
 }
