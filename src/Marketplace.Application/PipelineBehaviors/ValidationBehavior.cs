@@ -25,8 +25,8 @@ namespace Marketplace.Application.PipelineBehaviors
 
             var failures = _validators
                 .Select(x => x.Validate(context))
-                .SelectMany(x=> x.Errors)
-                .Where(x=> x != null)
+                .SelectMany(x => x.Errors)
+                .Where(x => x != null)
                 .ToList();
 
             if (failures.Any())

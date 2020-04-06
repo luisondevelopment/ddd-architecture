@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 namespace Marketplace.Application
 {
-    public interface IResponse
+    public class Response<T>
     {
-        dynamic Data { get; set; }
+        public Response(T data)
+        {
+            Data = data;
+        }
 
         public IList<ValidationFailure> Errors { get; set; }
+        public T Data { get; set; }
     }
 }

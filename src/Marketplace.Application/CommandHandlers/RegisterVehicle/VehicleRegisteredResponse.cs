@@ -6,12 +6,16 @@ namespace Marketplace.Application.CommandHandlers
 {
     public class VehicleRegisteredResponse : IResponse
     {
-        public VehicleRegisteredResponse(Vehicle vehicle)
+        public VehicleRegisteredResponse()
         {
-            Vehicle = vehicle;
         }
 
-        public Vehicle Vehicle { get; set; }
+        public VehicleRegisteredResponse(Vehicle vehicle)
+        {
+            Data = vehicle;
+        }
+
+        public dynamic Data { get; set; }
         public IList<ValidationFailure> Errors { get; set; }
     }
 }
