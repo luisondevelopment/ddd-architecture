@@ -1,36 +1,24 @@
-﻿using Marketplace.Application;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Marketplace.Api.Controllers
 {
     public class BaseController : ControllerBase
     {
         [NonAction]
-        public new IActionResult Response(IResponse response)
+        public new IActionResult Response(object response)
         {
-            if (response.Errors == null || !response.Errors.Any())
+            try
             {
-                try
+                return Ok(new
                 {
-                    return Ok(new
-                    {
-                        response.Data
-                    });
-                }
-                catch
-                {
-                    return BadRequest(new
-                    {
-                        errors = new[] { "Internal Server Error." }
-                    });
-                }
+                    Data = response
+                });
             }
-            else
+            catch
             {
                 return BadRequest(new
                 {
-                    errors = response.Errors
+                    errors = new[] { "Internal Server Error." }
                 });
             }
         }

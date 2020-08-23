@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Marketplace.Application.CommandHandlers.RegisterVehicle.Validation;
 
 namespace Marketplace.Application.CommandHandlers.RegisterVehicle
 {
@@ -7,9 +6,10 @@ namespace Marketplace.Application.CommandHandlers.RegisterVehicle
     {
         public RegisterTruckCommandValidator()
         {
-            Include(new RegisterVehicleCommandValidator());
             KmGreatherThanZero();
             LicensePlateNotEmpty();
+            BrandNotNull();
+            ModelNotNull();
         }
 
         public void KmGreatherThanZero()
@@ -21,6 +21,19 @@ namespace Marketplace.Application.CommandHandlers.RegisterVehicle
         public void LicensePlateNotEmpty()
         {
             RuleFor(x => x.LicensePlate)
+                .NotEmpty();
+        }
+
+
+        public void BrandNotNull()
+        {
+            RuleFor(x => x.Brand)
+                .NotEmpty();
+        }
+
+        public void ModelNotNull()
+        {
+            RuleFor(x => x.Model)
                 .NotEmpty();
         }
     }

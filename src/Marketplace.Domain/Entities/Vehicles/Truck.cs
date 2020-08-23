@@ -7,7 +7,12 @@ namespace Marketplace.Domain.Entities.Vehicles
     {
         private Truck() { }
 
-        public Truck(int km, string licensePlate, ITruckUniquenessChecker uniquenessTruckChecker)
+        public Truck(
+            int km, 
+            string licensePlate, 
+            string brand,
+            string model,
+            ITruckUniquenessChecker uniquenessTruckChecker)
         {
             uniquenessTruckChecker = uniquenessTruckChecker ?? throw new Exception($"Invalid {nameof(uniquenessTruckChecker)}");
 
@@ -19,6 +24,8 @@ namespace Marketplace.Domain.Entities.Vehicles
 
             Km = km;
             LicensePlate = new LicensePlate(licensePlate);
+            Brand = brand;
+            Model = model;
             CreatedAt = DateTime.Now;
         }
 

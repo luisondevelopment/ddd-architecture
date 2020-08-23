@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
+using Marketplace.Domain.Core.Exceptions;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,7 +10,6 @@ namespace Marketplace.Application.PipelineBehaviors
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
-        where TResponse : IResponse
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -21,7 +20,7 @@ namespace Marketplace.Application.PipelineBehaviors
 
         public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var context = new ValidationContext(request);
+            var context = new ValidationContext<TRequest>(request);
 
             var failures = _validators
                 .Select(x => x.Validate(context))
@@ -29,12 +28,7 @@ namespace Marketplace.Application.PipelineBehaviors
                 .Where(x => x != null)
                 .ToList();
 
-            if (failures.Any())
-            {
-                var response = (TResponse)Activator.CreateInstance(typeof(TResponse));
-                response.Errors = failures;
-                return Task.FromResult(response);
-            }
+            if (failures.Any()) throw new BusinessException(failures);
 
             return next();
         }

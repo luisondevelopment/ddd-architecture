@@ -33,6 +33,8 @@ namespace Marketplace.Application.Services
 
             _ctx.Trucks.Add(truckDb);
             _ctx.SaveChanges();
+
+            truck.Id = truckDb.Id;
         }
     }
 }

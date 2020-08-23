@@ -1,7 +1,6 @@
 using Marketplace.Api.Configuration;
-using Marketplace.Domain.Entities.Vehicles;
+using Marketplace.Api.Middlewares;
 using Marketplace.Infrastructure.Data.DbModels;
-using Microsoft.AspNet.OData.Batch;
 using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -62,6 +61,8 @@ namespace Marketplace.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseResponseExceptionHandler();
 
             // Swagger setup
             app.UseSwaggerSetup();

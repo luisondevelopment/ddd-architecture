@@ -1,6 +1,9 @@
 ﻿using FluentValidation;
+using Marketplace.Application.CommandHandlers;
+using Marketplace.Application.Core;
 using Marketplace.Application.PipelineBehaviors;
 using Marketplace.Application.Services;
+using Marketplace.Domain.Entities.Vehicles;
 using Marketplace.Domain.Interfaces.Repositories;
 using Marketplace.Domain.Interfaces.Services;
 using Marketplace.Infrastructure.Data.Repositories;
@@ -28,6 +31,9 @@ namespace MarketPlace.IoC
 
             // Truck
             services.AddTransient<ITruckUniquenessChecker, TruckUniquenessChecker>();
+
+            // Responses
+            services.AddTransient<IResponse<Truck, TruckRegisteredResponse>, TruckRegisteredResponse>();
         }
     }
 }

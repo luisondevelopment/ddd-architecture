@@ -3,17 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Api", "src/Marketplace.Api\Marketplace.Api.csproj", "{1A6D9251-97C2-437C-9DB6-336B5CDDE2DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Api", "src\Marketplace.Api\Marketplace.Api.csproj", "{1A6D9251-97C2-437C-9DB6-336B5CDDE2DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Application", "src/Marketplace.Application\Marketplace.Application.csproj", "{5E37F509-9CFD-4462-95C7-DEFCAF7E486E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Application", "src\Marketplace.Application\Marketplace.Application.csproj", "{5E37F509-9CFD-4462-95C7-DEFCAF7E486E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Domain", "src/Marketplace.Domain\Marketplace.Domain.csproj", "{97C2B021-96CA-49C0-BF87-E60D220A9E9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Domain", "src\Marketplace.Domain\Marketplace.Domain.csproj", "{97C2B021-96CA-49C0-BF87-E60D220A9E9B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Infrastructure.Data", "src/Marketplace.Infrastructure.Data\Marketplace.Infrastructure.Data.csproj", "{1EB1A449-6190-4DAE-99CB-6CE2A5C90415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Infrastructure.Data", "src\Marketplace.Infrastructure.Data\Marketplace.Infrastructure.Data.csproj", "{1EB1A449-6190-4DAE-99CB-6CE2A5C90415}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Infrastructure.Http", "src/Marketplace.Infrastructure.Http\Marketplace.Infrastructure.Http.csproj", "{4BE0AA3D-D7E6-4D33-853F-CFBB7D79365E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Infrastructure.Http", "src\Marketplace.Infrastructure.Http\Marketplace.Infrastructure.Http.csproj", "{4BE0AA3D-D7E6-4D33-853F-CFBB7D79365E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.IoC", "src/MarketPlace.IoC\MarketPlace.IoC.csproj", "{C5011717-0999-440F-8E7E-FD1903675AAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.IoC", "src\MarketPlace.IoC\MarketPlace.IoC.csproj", "{C5011717-0999-440F-8E7E-FD1903675AAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{243FABE0-7534-40BA-8287-7222B4828A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Api.Acceptance.Tests", "Marketplace.Api.Acceptance.Tests\Marketplace.Api.Acceptance.Tests.csproj", "{E5E4383C-B19C-460B-9459-9203B87E75B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1A6D9251-97C2-437C-9DB6-336B5CDDE2DD} = {1A6D9251-97C2-437C-9DB6-336B5CDDE2DD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +52,16 @@ Global
 		{C5011717-0999-440F-8E7E-FD1903675AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5011717-0999-440F-8E7E-FD1903675AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5011717-0999-440F-8E7E-FD1903675AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E4383C-B19C-460B-9459-9203B87E75B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E4383C-B19C-460B-9459-9203B87E75B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E4383C-B19C-460B-9459-9203B87E75B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E4383C-B19C-460B-9459-9203B87E75B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5E4383C-B19C-460B-9459-9203B87E75B6} = {243FABE0-7534-40BA-8287-7222B4828A27}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B9A8449-E076-4B88-B5DA-A65D105DFBE9}
