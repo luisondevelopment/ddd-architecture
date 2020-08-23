@@ -1,6 +1,4 @@
-﻿using Marketplace.Domain.Entities.Vehicles;
-
-namespace Marketplace.Domain.Interfaces.Services
+﻿namespace Marketplace.Domain.Interfaces.Services
 {
     public interface ITruckUniquenessChecker : IUniquenessChecker
     {

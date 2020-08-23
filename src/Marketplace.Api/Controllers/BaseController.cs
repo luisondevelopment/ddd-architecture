@@ -1,6 +1,5 @@
 ﻿using Marketplace.Application;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Marketplace.Api.Controllers

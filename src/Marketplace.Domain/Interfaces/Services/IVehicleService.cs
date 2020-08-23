@@ -5,5 +5,6 @@ namespace Marketplace.Domain.Interfaces.Services
     public interface IVehicleService
     {
         void Save(Vehicle vehicle);
+        void SaveTruck(Truck truck);
     }
 }

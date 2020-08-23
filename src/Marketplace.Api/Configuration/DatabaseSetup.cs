@@ -1,4 +1,5 @@
-﻿using Marketplace.Infrastructure.Data.EntityFramework.Contexts;
+﻿using Marketplace.Infrastructure.Data.EntityFramework;
+using Marketplace.Infrastructure.Data.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,8 @@ namespace Marketplace.Api.Configuration
                 if (!options.IsConfigured)
                     options.UseInMemoryDatabase("Marketplace");
             });
+
+            DataGenerator.Initialize(services.BuildServiceProvider());
         }
     }
 }

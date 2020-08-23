@@ -1,4 +1,6 @@
-﻿namespace Marketplace.Domain.Entities.Vehicles
+﻿using Marketplace.Domain.Core.Entities;
+
+namespace Marketplace.Domain.Entities.Vehicles
 {
     public class LicensePlate : ValueObject
     {
